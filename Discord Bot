@@ -1,0 +1,16 @@
+import discord
+from discord.ext.commands import Bot
+
+bot = Bot(command_prefix='$')
+TOKEN = '<ENTER TOKEN HERE>'
+
+@bot.event
+async def on_ready():
+	print(f'Bot connected as {bot.user}')
+	
+@bot.event
+async def on_message(message):
+	if message.content == '$commands':
+		await message.channel.send('$commands,')
+		
+bot.run('ENTER TOKEN HERE')
